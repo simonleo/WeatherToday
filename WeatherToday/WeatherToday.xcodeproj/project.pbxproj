@@ -11,8 +11,8 @@
 		49EB95971B438F540039D9D6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EB95961B438F540039D9D6 /* ViewController.swift */; };
 		49EB959A1B438F540039D9D6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49EB95981B438F540039D9D6 /* Main.storyboard */; };
 		49EB959C1B438F540039D9D6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49EB959B1B438F540039D9D6 /* Images.xcassets */; };
-		49EB959F1B438F540039D9D6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49EB959D1B438F540039D9D6 /* LaunchScreen.xib */; };
 		49EB95AB1B438F540039D9D6 /* WeatherTodayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EB95AA1B438F540039D9D6 /* WeatherTodayTests.swift */; };
+		49EB95B51B43945E0039D9D6 /* CityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EB95B41B43945E0039D9D6 /* CityTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,10 +32,10 @@
 		49EB95961B438F540039D9D6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		49EB95991B438F540039D9D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		49EB959B1B438F540039D9D6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		49EB959E1B438F540039D9D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		49EB95A41B438F540039D9D6 /* WeatherTodayTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeatherTodayTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		49EB95A91B438F540039D9D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49EB95AA1B438F540039D9D6 /* WeatherTodayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherTodayTests.swift; sourceTree = "<group>"; };
+		49EB95B41B43945E0039D9D6 /* CityTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,8 +81,8 @@
 				49EB95961B438F540039D9D6 /* ViewController.swift */,
 				49EB95981B438F540039D9D6 /* Main.storyboard */,
 				49EB959B1B438F540039D9D6 /* Images.xcassets */,
-				49EB959D1B438F540039D9D6 /* LaunchScreen.xib */,
 				49EB95921B438F540039D9D6 /* Supporting Files */,
+				49EB95B41B43945E0039D9D6 /* CityTableViewCell.swift */,
 			);
 			path = WeatherToday;
 			sourceTree = "<group>";
@@ -193,7 +193,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				49EB959A1B438F540039D9D6 /* Main.storyboard in Resources */,
-				49EB959F1B438F540039D9D6 /* LaunchScreen.xib in Resources */,
 				49EB959C1B438F540039D9D6 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -212,6 +211,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49EB95B51B43945E0039D9D6 /* CityTableViewCell.swift in Sources */,
 				49EB95971B438F540039D9D6 /* ViewController.swift in Sources */,
 				49EB95951B438F540039D9D6 /* AppDelegate.swift in Sources */,
 			);
@@ -242,14 +242,6 @@
 				49EB95991B438F540039D9D6 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		49EB959D1B438F540039D9D6 /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				49EB959E1B438F540039D9D6 /* Base */,
-			);
-			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
