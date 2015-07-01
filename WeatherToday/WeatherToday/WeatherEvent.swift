@@ -9,14 +9,14 @@
 import Foundation
 
 enum City: String {
-    case Beijing = "beijing"
-    case Shanghai = "shanghai"
-    case Guangzhou = "guangzhou"
-    case Other = "other"
+    case beijing = "beijing"
+    case shanghai = "shanghai"
+    case guangzhou = "guangzhou"
+    case other = "other"
 }
 
 class WeatherEvent {
-    var pinyin: City
+//    var pinyin: City
     var city: String
     var weather: String
     var l_tmp: Int
@@ -29,8 +29,8 @@ class WeatherEvent {
         return Static.instance
     }
     
-    init(pinyin: City, city: String, weather: String, l_tmp: Int, h_tmp: Int, date: NSDate){
-        self.pinyin = pinyin
+    init(city: String, weather: String, l_tmp: Int, h_tmp: Int, date: NSDate){
+//        self.pinyin = pinyin
         self.city = city
         self.weather = weather
         self.l_tmp = l_tmp
@@ -40,35 +40,35 @@ class WeatherEvent {
     
     convenience init(json: JSONValue) {
         let data = WeatherEvent.extractDataFromJson(json)
-        self.init(pinyin: data.pinyin, city: data.city, weather: data.weather, l_tmp: data.l_tmp, h_tmp: data.h_tmp, date: data.date!)
+        self.init(city: data.city, weather: data.weather, l_tmp: data.l_tmp, h_tmp: data.h_tmp, date: data.date!)
     }
     
-    class func extractDataFromJson(jsonEvent: JSONValue) -> (pinyin: City, city: String, weather: String, l_tmp: Int, h_tmp: Int, date: NSDate?) {
-        let city = jsonEvent["city"].string!
-        let weather = jsonEvent["weather"].string!
-        let l_tmp = jsonEvent["l_tmp"].integer!
-        let h_tmp = jsonEvent["h_tmp"].integer!
+    class func extractDataFromJson(jsonEvent: JSONValue) -> (city: String, weather: String, l_tmp: Int, h_tmp: Int, date: NSDate?) {
+        let city = jsonEvent["retData"]["city"].string!
+        let weather = jsonEvent["retData"]["weather"].string!
+        let l_tmp = jsonEvent["retData"]["l_tmp"].integer!
+        let h_tmp = jsonEvent["retData"]["h_tmp"].integer!
         
-        var cityPinyin: City = .Other
-        if let pinyinString = jsonEvent["pinyin"].string {
-            switch pinyinString {
-            case "beijing":
-                cityPinyin = .Beijing
-            case "shanghai":
-                cityPinyin = .Shanghai
-            case "guangzhou":
-                cityPinyin = .Guangzhou
-            default:
-                cityPinyin = .Other
-            }
-        }
+//        var cityPinyin: City = .other
+//        if let pinyinString = jsonEvent["retData"]["pinyin"].string {
+//            switch pinyinString {
+//            case "beijing":
+//                cityPinyin = .beijing
+//            case "shanghai":
+//                cityPinyin = .shanghai
+//            case "guangzhou":
+//                cityPinyin = .guangzhou
+//            default:
+//                cityPinyin = .other
+//            }
+//        }
         
         var date: NSDate?
-        if let dateString = jsonEvent["date"].string {
+        if let dateString = jsonEvent["retData"]["date"].string {
             WeatherEvent.dateFormatter.dateFormat = "yyyy-MM-dd"
             date = WeatherEvent.dateFormatter.dateFromString(dateString)
         }
         
-        return (cityPinyin, city, weather, l_tmp, h_tmp, date)
+        return (city, weather, l_tmp, h_tmp, date)
     }
 }

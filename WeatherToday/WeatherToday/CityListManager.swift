@@ -22,13 +22,13 @@ struct CityInfo {
         var cityPinyin = dictionary["pinyin"]!
         switch cityPinyin {
         case "beijing":
-            pinyin = .Beijing
+            pinyin = .beijing
         case "shanghai":
-            pinyin = .Shanghai
+            pinyin = .shanghai
         case "guangzhou":
-            pinyin = .Guangzhou
+            pinyin = .guangzhou
         default:
-            pinyin = .Other
+            pinyin = .other
         }
         city = dictionary["city"]!
         nickName = dictionary["nickName"]!

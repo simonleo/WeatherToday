@@ -45,6 +45,15 @@ class ViewController: UITableViewController {
             cityCell.cityInfo = cityInfo
         }
     }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let cityInfo = cityList?.citys[indexPath.row]
+        let weatherViewController = storyboard?.instantiateViewControllerWithIdentifier("WeatherViewController") as? WeatherViewController
+        if let weatherViewController = weatherViewController {
+            weatherViewController.cityInfo = cityInfo
+            navigationController?.pushViewController(weatherViewController, animated: true)
+        }
+    }
 
 }
 

@@ -18,8 +18,14 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="J7B-GC-xsg" id="pLT-am-k7M">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vd8-4T-8YL">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="cityLabel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vd8-4T-8YL">
                                             <rect key="frame" x="78" y="11" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="nickLabel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S6H-h7-iak">
+                                            <rect key="frame" x="442" y="11" width="42" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
@@ -27,12 +33,16 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="vd8-4T-8YL" firstAttribute="top" secondItem="pLT-am-k7M" secondAttribute="top" constant="10" id="B4S-eB-muq"/>
-                                        <constraint firstItem="vd8-4T-8YL" firstAttribute="leading" secondItem="pLT-am-k7M" secondAttribute="leading" constant="80" id="dpk-gg-x1p"/>
-                                        <constraint firstAttribute="bottom" secondItem="vd8-4T-8YL" secondAttribute="bottom" constant="10" id="mX7-hJ-RyS"/>
+                                        <constraint firstAttribute="trailing" secondItem="S6H-h7-iak" secondAttribute="trailing" constant="100" id="G5N-AL-lWH"/>
+                                        <constraint firstAttribute="bottom" secondItem="S6H-h7-iak" secondAttribute="bottom" constant="10" id="a9G-Ge-UMT"/>
+                                        <constraint firstItem="vd8-4T-8YL" firstAttribute="leading" secondItem="pLT-am-k7M" secondAttribute="leading" constant="150" id="dpk-gg-x1p"/>
+                                        <constraint firstAttribute="bottom" secondItem="vd8-4T-8YL" secondAttribute="bottom" id="mX7-hJ-RyS"/>
+                                        <constraint firstItem="S6H-h7-iak" firstAttribute="top" secondItem="pLT-am-k7M" secondAttribute="top" constant="20" id="mpz-it-vc8"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="cityNameLabel" destination="vd8-4T-8YL" id="g6m-IJ-2UV"/>
+                                    <outlet property="nickNameLabel" destination="S6H-h7-iak" id="bDI-Rp-8Cs"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -46,6 +56,37 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ADX-cP-jT9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="366" y="218"/>
+        </scene>
+        <!--Weather View Controller-->
+        <scene sceneID="kCQ-N2-l93">
+            <objects>
+                <viewController storyboardIdentifier="WeatherViewController" id="kgj-Lb-xay" customClass="WeatherViewController" customModule="WeatherToday" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1QL-Ka-RmE"/>
+                        <viewControllerLayoutGuide type="bottom" id="KWz-Fa-8aJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bN1-EU-XcG">
+                        <rect key="frame" x="0.0" y="64" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0DA-5W-Jmc">
+                                <rect key="frame" x="231" y="301" width="46" height="30"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <navigationItem key="navigationItem" id="tFZ-by-S2P"/>
+                    <connections>
+                        <outlet property="button" destination="0DA-5W-Jmc" id="NSZ-QM-OL2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xk6-ev-KRM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1093" y="218"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ckC-59-qhm">
