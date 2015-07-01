@@ -10,9 +10,11 @@ import UIKit
 
 class ViewController: UITableViewController {
 
+    var cityList: CityListManager? = nil
+    
     override func awakeFromNib() {
         title = "WeatherToday"
-        
+        cityList = CityListManager()
     }
     
     override func viewDidLoad() {
@@ -30,15 +32,18 @@ class ViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        <#code#>
+        return cityList?.citys.count ?? 0
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        <#code#>
+        return tableView.dequeueReusableCellWithIdentifier("cityCell", forIndexPath: indexPath) as! UITableViewCell
     }
 
     override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        <#code#>
+        if let cityCell = cell as? CityTableViewCell {
+            let cityInfo = cityList?.citys[indexPath.row]
+            cityCell.cityInfo = cityInfo
+        }
     }
 
 }

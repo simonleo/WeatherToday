@@ -19,17 +19,16 @@ struct CityInfo {
     }
     
     init(dictionary: [String:String]) {
-        if var cityPinyin = dictionary["pinyin"] {
-            switch cityPinyin {
-            case "beijing":
-                pinyin = .Beijing
-            case "shanghai":
-                pinyin = .Shanghai
-            case "guangzhou":
-                pinyin = .Guangzhou
-            default:
-                pinyin = .Other
-            }
+        var cityPinyin = dictionary["pinyin"]!
+        switch cityPinyin {
+        case "beijing":
+            pinyin = .Beijing
+        case "shanghai":
+            pinyin = .Shanghai
+        case "guangzhou":
+            pinyin = .Guangzhou
+        default:
+            pinyin = .Other
         }
         city = dictionary["city"]!
         nickName = dictionary["nickName"]!
@@ -45,7 +44,7 @@ class CityListManager {
     }
     
     convenience init() {
-        self.init(self.init(plistNamed: "CityList"))
+        self.init(plistNamed: "CityList")
     }
     
     private func loadCityInfoFromPlistNamed(plistName: String) -> [CityInfo] {

@@ -16,7 +16,7 @@ enum City: String {
 }
 
 class WeatherEvent {
-    var pinyin: String
+    var pinyin: City
     var city: String
     var weather: String
     var l_tmp: Int
@@ -29,7 +29,7 @@ class WeatherEvent {
         return Static.instance
     }
     
-    init(pinyin: String, city: String, weather: String, l_tmp: Int, h_tmp: Int, date: NSDate){
+    init(pinyin: City, city: String, weather: String, l_tmp: Int, h_tmp: Int, date: NSDate){
         self.pinyin = pinyin
         self.city = city
         self.weather = weather
@@ -40,14 +40,14 @@ class WeatherEvent {
     
     convenience init(json: JSONValue) {
         let data = WeatherEvent.extractDataFromJson(json)
-        self.init(pinyin: data.pinyin, city: data.city, weather: data.weather, l_tmp: data.l_tmp, h_tmp: data.h_tmp, date: data.date)
+        self.init(pinyin: data.pinyin, city: data.city, weather: data.weather, l_tmp: data.l_tmp, h_tmp: data.h_tmp, date: data.date!)
     }
     
-    class func extractDataFromJson(jsonEvent: JSONValue) -> (pinyin: String, city: String, weather: String, l_tmp: Int, h_tmp: Int, date: NSDate) {
-        let city = jsonEvent["city"].string
-        let weather = jsonEvent["weather"].string
-        let l_tmp = jsonEvent["l_tmp"].integer
-        let h_tmp = jsonEvent["h_tmp"].integer
+    class func extractDataFromJson(jsonEvent: JSONValue) -> (pinyin: City, city: String, weather: String, l_tmp: Int, h_tmp: Int, date: NSDate?) {
+        let city = jsonEvent["city"].string!
+        let weather = jsonEvent["weather"].string!
+        let l_tmp = jsonEvent["l_tmp"].integer!
+        let h_tmp = jsonEvent["h_tmp"].integer!
         
         var cityPinyin: City = .Other
         if let pinyinString = jsonEvent["pinyin"].string {

@@ -12,5 +12,12 @@ class CityTableViewCell: UITableViewCell {
     
     @IBOutlet weak var cityNameLabel: UILabel!
     
+    var cityInfo: CityInfo? {
+        didSet {
+            if let cityInfo = cityInfo {
+                cityNameLabel.text = cityInfo.city
+            }
+        }
+    }
     
 }

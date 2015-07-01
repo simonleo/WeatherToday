@@ -20,15 +20,15 @@ class WeatherManager {
                 return
             }
             let event = self.convertJSONToEvents(JSONValue(data))
-            callback(event)
+            callback(event!)
         })
         task.resume()
     }
     
-    private func convertJSONToEvents(data:JSONValue) -> WeatherEvent {
+    private func convertJSONToEvents(data:JSONValue) -> WeatherEvent? {
         let jsons = data.array
-        var weatherEvent: WeatherEvent
-        if let eventJson = jsons[0] {
+        var weatherEvent: WeatherEvent?
+        if let eventJson = jsons?[0] {
             weatherEvent = WeatherEvent(json: eventJson)
         }
         return weatherEvent
