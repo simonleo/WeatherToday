@@ -8,14 +8,14 @@
 
 import Foundation
 
-enum City: String {
+public enum City: String {
     case beijing = "beijing"
     case shanghai = "shanghai"
     case guangzhou = "guangzhou"
     case other = "other"
 }
 
-class WeatherEvent {
+public class WeatherEvent {
 //    var pinyin: City
     var city: String
     var weather: String
@@ -38,7 +38,7 @@ class WeatherEvent {
         self.date = date
     }
     
-    convenience init(json: JSONValue) {
+    public convenience init(json: JSONValue) {
         let data = WeatherEvent.extractDataFromJson(json)
         self.init(city: data.city, weather: data.weather, l_tmp: data.l_tmp, h_tmp: data.h_tmp, date: data.date!)
     }

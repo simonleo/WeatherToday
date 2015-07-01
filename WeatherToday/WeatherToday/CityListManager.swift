@@ -8,17 +8,17 @@
 
 import UIKit
 
-struct CityInfo {
-    let pinyin: City
-    let city: String
-    let nickName: String
-    let imageName: String
+public struct CityInfo {
+    public let pinyin: City
+    public let city: String
+    public let nickName: String
+    public let imageName: String
     
-    var image: UIImage {
+    public var image: UIImage {
         return UIImage(named: imageName)!
     }
     
-    init(dictionary: [String:String]) {
+    public init(dictionary: [String:String]) {
         var cityPinyin = dictionary["pinyin"]!
         switch cityPinyin {
         case "beijing":
@@ -36,14 +36,14 @@ struct CityInfo {
     }
 }
 
-class CityListManager {
-    private(set) var citys = [CityInfo]()
+public class CityListManager {
+    public var citys = [CityInfo]()
     
     init(plistNamed: String) {
         self.citys = self.loadCityInfoFromPlistNamed(plistNamed)
     }
     
-    convenience init() {
+    public convenience init() {
         self.init(plistNamed: "CityList")
     }
     

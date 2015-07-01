@@ -9,6 +9,11 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>WeatherTodayManageKit.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
@@ -18,6 +23,16 @@
 			<true/>
 		</dict>
 		<key>49EB95A31B438F540039D9D6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>49EB95C81B43F0CE0039D9D6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>49EB95D21B43F0CE0039D9D6</key>
 		<dict>
 			<key>primary</key>
 			<true/>

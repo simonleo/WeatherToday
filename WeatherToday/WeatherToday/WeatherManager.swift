@@ -8,10 +8,10 @@
 
 import Foundation
 
-class WeatherManager {
-    init() {}
+public class WeatherManager {
+    public init() {}
     
-    func getEvents(cityInfo: CityInfo, callback: (WeatherEvent)->()) {
+    public func getEvents(cityInfo: CityInfo, callback: (WeatherEvent)->()) {
         
         let url = NSURL(string: "http://apistore.baidu.com/microservice/weather?citypinyin=\(cityInfo.pinyin.rawValue)")
         let task = NSURLSession.sharedSession().dataTaskWithURL(url!,completionHandler: {

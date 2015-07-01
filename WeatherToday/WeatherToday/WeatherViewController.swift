@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import WeatherTodayManageKit
 
 class WeatherViewController: UIViewController {
     @IBOutlet weak var button: UIButton!
