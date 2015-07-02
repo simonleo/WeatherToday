@@ -49,9 +49,10 @@ class ViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let cityInfo = cityList?.citys[indexPath.row]
+        let cityPinyin = cityInfo?.pinyin.rawValue
         let weatherViewController = storyboard?.instantiateViewControllerWithIdentifier("WeatherViewController") as? WeatherViewController
         if let weatherViewController = weatherViewController {
-            weatherViewController.cityInfo = cityInfo
+            weatherViewController.cityPinyin = cityPinyin
             navigationController?.pushViewController(weatherViewController, animated: true)
         }
     }

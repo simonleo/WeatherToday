@@ -9,6 +9,15 @@
 import UIKit
 import WeatherTodayManageKit
 
+enum Weather: String {
+    case 晴 = "晴"
+    case 多云 = "多云"
+    case 阴 = "阴"
+    case 阵雨 = "阵雨"
+    case 雷阵雨 = "雷阵雨"
+    case 雨 = "雨"
+}
+
 class WeatherViewController: UIViewController {
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var weatherLabel: UILabel!
@@ -17,7 +26,7 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var weatherImageView: UIImageView!
     
-    var cityInfo: CityInfo!
+    var cityPinyin: String!
     var weatherManager: WeatherManager!
     var weatherEvent: WeatherEvent! {
         didSet {
@@ -28,6 +37,7 @@ class WeatherViewController: UIViewController {
                     self.lowTmpLabel.text = "最低温度：\(event.l_tmp)"
                     self.highTmpLabel.text = "最高温度：\(event.h_tmp)"
                     self.dateLabel.text = event.date
+                    self.updateWeatherImage(Weather(rawValue: event.weather)!)
                 } else {
                     println("weatherEvent is nil!")
                 }
@@ -38,14 +48,31 @@ class WeatherViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        assert(cityInfo != nil, "city not set")
+        assert(cityPinyin != nil, "city not set")
         weatherManager = WeatherManager()
-        weatherManager.getEvents(cityInfo!, callback: {
+        weatherManager.getEvents(cityPinyin!, callback: {
             weatherEvent in
             self.weatherEvent = weatherEvent
         })
         
 
+    }
+    
+    func updateWeatherImage(weather: Weather) {
+        switch weather {
+        case .晴:
+            self.weatherImageView.image = UIImage(named: "晴")
+        case .多云:
+            self.weatherImageView.image = UIImage(named: "多云")
+        case .阴:
+            self.weatherImageView.image = UIImage(named: "阴")
+        case .阵雨:
+            self.weatherImageView.image = UIImage(named: "阵雨")
+        case .雷阵雨:
+            self.weatherImageView.image = UIImage(named: "雷阵雨")
+        default:
+            self.weatherImageView.image = UIImage(named: "雨")
+        }
     }
     
     

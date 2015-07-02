@@ -11,9 +11,9 @@ import Foundation
 public class WeatherManager {
     public init() {}
     
-    public func getEvents(cityInfo: CityInfo, callback: (WeatherEvent)->()) {
+    public func getEvents(pinyin: String, callback: (WeatherEvent)->()) {
         
-        let url = NSURL(string: "http://apistore.baidu.com/microservice/weather?citypinyin=\(cityInfo.pinyin.rawValue)")
+        let url = NSURL(string: "http://apistore.baidu.com/microservice/weather?citypinyin=\(pinyin)")
         let task = NSURLSession.sharedSession().dataTaskWithURL(url!,completionHandler: {
                 (data, response, error) in
             if(error != nil) {

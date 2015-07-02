@@ -12,6 +12,8 @@
 		49E93EA61B44D621000F533E /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49E93EA51B44D621000F533E /* MainInterface.storyboard */; };
 		49E93EA91B44D621000F533E /* WeatherTodayWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 49E93E9C1B44D621000F533E /* WeatherTodayWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		49E93EAE1B44D6BA000F533E /* WeatherTodayManageKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49EB95C91B43F0CE0039D9D6 /* WeatherTodayManageKit.framework */; };
+		49E93EAF1B45135D000F533E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49EB959B1B438F540039D9D6 /* Images.xcassets */; };
+		49E93EB11B451605000F533E /* CityList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 49EB95C01B43B76F0039D9D6 /* CityList.plist */; };
 		49EB95951B438F540039D9D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EB95941B438F540039D9D6 /* AppDelegate.swift */; };
 		49EB95971B438F540039D9D6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EB95961B438F540039D9D6 /* ViewController.swift */; };
 		49EB959A1B438F540039D9D6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49EB95981B438F540039D9D6 /* Main.storyboard */; };
@@ -476,7 +478,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49E93EB11B451605000F533E /* CityList.plist in Resources */,
 				49E93EA61B44D621000F533E /* MainInterface.storyboard in Resources */,
+				49E93EAF1B45135D000F533E /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -712,7 +716,6 @@
 		49EB95AF1B438F540039D9D6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = WeatherToday/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -722,7 +725,6 @@
 		49EB95B01B438F540039D9D6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = WeatherToday/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -847,6 +849,7 @@
 				49E93EAB1B44D621000F533E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		49EB958A1B438F540039D9D6 /* Build configuration list for PBXProject "WeatherToday" */ = {
 			isa = XCConfigurationList;
