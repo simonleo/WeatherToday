@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		49E93E9F1B44D621000F533E /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49E93E9E1B44D621000F533E /* NotificationCenter.framework */; };
+		49E93EA41B44D621000F533E /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E93EA31B44D621000F533E /* TodayViewController.swift */; };
+		49E93EA61B44D621000F533E /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49E93EA51B44D621000F533E /* MainInterface.storyboard */; };
+		49E93EA91B44D621000F533E /* WeatherTodayWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 49E93E9C1B44D621000F533E /* WeatherTodayWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		49E93EAE1B44D6BA000F533E /* WeatherTodayManageKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49EB95C91B43F0CE0039D9D6 /* WeatherTodayManageKit.framework */; };
 		49EB95951B438F540039D9D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EB95941B438F540039D9D6 /* AppDelegate.swift */; };
 		49EB95971B438F540039D9D6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EB95961B438F540039D9D6 /* ViewController.swift */; };
 		49EB959A1B438F540039D9D6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49EB95981B438F540039D9D6 /* Main.storyboard */; };
@@ -27,6 +32,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		49E93EA71B44D621000F533E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 49EB95871B438F540039D9D6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 49E93E9B1B44D621000F533E;
+			remoteInfo = WeatherTodayWidget;
+		};
 		49EB95A51B438F540039D9D6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 49EB95871B438F540039D9D6 /* Project object */;
@@ -58,6 +70,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		49E93EAD1B44D621000F533E /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				49E93EA91B44D621000F533E /* WeatherTodayWidget.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		49EB95E51B43F0CE0039D9D6 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -72,6 +95,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		49E93E9C1B44D621000F533E /* WeatherTodayWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WeatherTodayWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		49E93E9E1B44D621000F533E /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		49E93EA21B44D621000F533E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		49E93EA31B44D621000F533E /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		49E93EA51B44D621000F533E /* MainInterface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
 		49EB958F1B438F540039D9D6 /* WeatherToday.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherToday.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49EB95931B438F540039D9D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49EB95941B438F540039D9D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -97,6 +125,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		49E93E991B44D621000F533E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49E93EAE1B44D6BA000F533E /* WeatherTodayManageKit.framework in Frameworks */,
+				49E93E9F1B44D621000F533E /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		49EB958C1B438F540039D9D6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -130,6 +167,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		49E93E9D1B44D621000F533E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				49E93E9E1B44D621000F533E /* NotificationCenter.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		49E93EA01B44D621000F533E /* WeatherTodayWidget */ = {
+			isa = PBXGroup;
+			children = (
+				49E93EA31B44D621000F533E /* TodayViewController.swift */,
+				49E93EA51B44D621000F533E /* MainInterface.storyboard */,
+				49E93EA11B44D621000F533E /* Supporting Files */,
+			);
+			path = WeatherTodayWidget;
+			sourceTree = "<group>";
+		};
+		49E93EA11B44D621000F533E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				49E93EA21B44D621000F533E /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		49EB95861B438F540039D9D6 = {
 			isa = PBXGroup;
 			children = (
@@ -137,6 +200,8 @@
 				49EB95A71B438F540039D9D6 /* WeatherTodayTests */,
 				49EB95CA1B43F0CE0039D9D6 /* WeatherTodayManageKit */,
 				49EB95D91B43F0CE0039D9D6 /* WeatherTodayManageKitTests */,
+				49E93EA01B44D621000F533E /* WeatherTodayWidget */,
+				49E93E9D1B44D621000F533E /* Frameworks */,
 				49EB95901B438F540039D9D6 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -148,6 +213,7 @@
 				49EB95A41B438F540039D9D6 /* WeatherTodayTests.xctest */,
 				49EB95C91B43F0CE0039D9D6 /* WeatherTodayManageKit.framework */,
 				49EB95D31B43F0CE0039D9D6 /* WeatherTodayManageKitTests.xctest */,
+				49E93E9C1B44D621000F533E /* WeatherTodayWidget.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -262,6 +328,23 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		49E93E9B1B44D621000F533E /* WeatherTodayWidget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 49E93EAC1B44D621000F533E /* Build configuration list for PBXNativeTarget "WeatherTodayWidget" */;
+			buildPhases = (
+				49E93E981B44D621000F533E /* Sources */,
+				49E93E991B44D621000F533E /* Frameworks */,
+				49E93E9A1B44D621000F533E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WeatherTodayWidget;
+			productName = WeatherTodayWidget;
+			productReference = 49E93E9C1B44D621000F533E /* WeatherTodayWidget.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		49EB958E1B438F540039D9D6 /* WeatherToday */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 49EB95AE1B438F540039D9D6 /* Build configuration list for PBXNativeTarget "WeatherToday" */;
@@ -270,11 +353,13 @@
 				49EB958C1B438F540039D9D6 /* Frameworks */,
 				49EB958D1B438F540039D9D6 /* Resources */,
 				49EB95E51B43F0CE0039D9D6 /* Embed Frameworks */,
+				49E93EAD1B44D621000F533E /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				49EB95DF1B43F0CE0039D9D6 /* PBXTargetDependency */,
+				49E93EA81B44D621000F533E /* PBXTargetDependency */,
 			);
 			name = WeatherToday;
 			productName = WeatherToday;
@@ -345,6 +430,9 @@
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = ls;
 				TargetAttributes = {
+					49E93E9B1B44D621000F533E = {
+						CreatedOnToolsVersion = 6.3.2;
+					};
 					49EB958E1B438F540039D9D6 = {
 						CreatedOnToolsVersion = 6.3.2;
 					};
@@ -378,11 +466,20 @@
 				49EB95A31B438F540039D9D6 /* WeatherTodayTests */,
 				49EB95C81B43F0CE0039D9D6 /* WeatherTodayManageKit */,
 				49EB95D21B43F0CE0039D9D6 /* WeatherTodayManageKitTests */,
+				49E93E9B1B44D621000F533E /* WeatherTodayWidget */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		49E93E9A1B44D621000F533E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49E93EA61B44D621000F533E /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		49EB958D1B438F540039D9D6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -417,6 +514,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		49E93E981B44D621000F533E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49E93EA41B44D621000F533E /* TodayViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		49EB958B1B438F540039D9D6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -458,6 +563,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		49E93EA81B44D621000F533E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 49E93E9B1B44D621000F533E /* WeatherTodayWidget */;
+			targetProxy = 49E93EA71B44D621000F533E /* PBXContainerItemProxy */;
+		};
 		49EB95A61B438F540039D9D6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 49EB958E1B438F540039D9D6 /* WeatherToday */;
@@ -492,6 +602,30 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		49E93EAA1B44D621000F533E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = WeatherTodayWidget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		49E93EAB1B44D621000F533E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = WeatherTodayWidget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 		49EB95AC1B438F540039D9D6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -706,6 +840,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		49E93EAC1B44D621000F533E /* Build configuration list for PBXNativeTarget "WeatherTodayWidget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				49E93EAA1B44D621000F533E /* Debug */,
+				49E93EAB1B44D621000F533E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		49EB958A1B438F540039D9D6 /* Build configuration list for PBXProject "WeatherToday" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -722,6 +864,7 @@
 				49EB95B01B438F540039D9D6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		49EB95B11B438F540039D9D6 /* Build configuration list for PBXNativeTarget "WeatherTodayTests" */ = {
 			isa = XCConfigurationList;
@@ -730,6 +873,7 @@
 				49EB95B31B438F540039D9D6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		49EB95E21B43F0CE0039D9D6 /* Build configuration list for PBXNativeTarget "WeatherTodayManageKit" */ = {
 			isa = XCConfigurationList;
@@ -738,6 +882,7 @@
 				49EB95E41B43F0CE0039D9D6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		49EB95E61B43F0CE0039D9D6 /* Build configuration list for PBXNativeTarget "WeatherTodayManageKitTests" */ = {
 			isa = XCConfigurationList;
@@ -746,6 +891,7 @@
 				49EB95E81B43F0CE0039D9D6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

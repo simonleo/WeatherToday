@@ -17,11 +17,11 @@ public enum City: String {
 
 public class WeatherEvent {
 //    var pinyin: City
-    var city: String
-    var weather: String
-    var l_tmp: Int
-    var h_tmp: Int
-    var date: NSDate?
+    public var city: String
+    public var weather: String
+    public var l_tmp: Int
+    public var h_tmp: Int
+    public var date: String
     private class var dateFormatter : NSDateFormatter {
         struct Static {
             static let instance : NSDateFormatter = NSDateFormatter()
@@ -29,7 +29,7 @@ public class WeatherEvent {
         return Static.instance
     }
     
-    init(city: String, weather: String, l_tmp: Int, h_tmp: Int, date: NSDate){
+    init(city: String, weather: String, l_tmp: Int, h_tmp: Int, date: String){
 //        self.pinyin = pinyin
         self.city = city
         self.weather = weather
@@ -40,14 +40,15 @@ public class WeatherEvent {
     
     public convenience init(json: JSONValue) {
         let data = WeatherEvent.extractDataFromJson(json)
-        self.init(city: data.city, weather: data.weather, l_tmp: data.l_tmp, h_tmp: data.h_tmp, date: data.date!)
+        self.init(city: data.city, weather: data.weather, l_tmp: data.l_tmp, h_tmp: data.h_tmp, date: data.date)
     }
     
-    class func extractDataFromJson(jsonEvent: JSONValue) -> (city: String, weather: String, l_tmp: Int, h_tmp: Int, date: NSDate?) {
+    class func extractDataFromJson(jsonEvent: JSONValue) -> (city: String, weather: String, l_tmp: Int, h_tmp: Int, date: String) {
         let city = jsonEvent["retData"]["city"].string!
         let weather = jsonEvent["retData"]["weather"].string!
         let l_tmp = jsonEvent["retData"]["l_tmp"].integer!
         let h_tmp = jsonEvent["retData"]["h_tmp"].integer!
+        let dateString = jsonEvent["retData"]["date"].string!
         
 //        var cityPinyin: City = .other
 //        if let pinyinString = jsonEvent["retData"]["pinyin"].string {
@@ -63,12 +64,12 @@ public class WeatherEvent {
 //            }
 //        }
         
-        var date: NSDate?
-        if let dateString = jsonEvent["retData"]["date"].string {
-            WeatherEvent.dateFormatter.dateFormat = "yyyy-MM-dd"
-            date = WeatherEvent.dateFormatter.dateFromString(dateString)
-        }
+//        var date: NSDate?
+//        if let dateString = jsonEvent["retData"]["date"].string {
+//            WeatherEvent.dateFormatter.dateFormat = "yyyy-MM-dd"
+//            date = WeatherEvent.dateFormatter.dateFromString(dateString)
+//        }
         
-        return (city, weather, l_tmp, h_tmp, date)
+        return (city, weather, l_tmp, h_tmp, dateString)
     }
 }
