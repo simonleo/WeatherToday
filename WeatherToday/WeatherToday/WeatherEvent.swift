@@ -16,7 +16,6 @@ public enum City: String {
 }
 
 public class WeatherEvent {
-//    var pinyin: City
     public var city: String
     public var weather: String
     public var l_tmp: Int
@@ -30,7 +29,6 @@ public class WeatherEvent {
     }
     
     init(city: String, weather: String, l_tmp: Int, h_tmp: Int, date: String){
-//        self.pinyin = pinyin
         self.city = city
         self.weather = weather
         self.l_tmp = l_tmp

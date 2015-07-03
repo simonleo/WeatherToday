@@ -17,10 +17,8 @@ class CityTableViewCell: UITableViewCell {
     var cityInfo: CityInfo? {
         didSet {
             if let cityInfo = cityInfo {
-                cityNameLabel.textAlignment = NSTextAlignment.Center
                 cityNameLabel.text = cityInfo.city
                 cityNameLabel.font = UIFont.systemFontOfSize(15)
-                nickNameLabel.textAlignment = NSTextAlignment.Center
                 nickNameLabel.text = cityInfo.nickName
                 nickNameLabel.font = UIFont.systemFontOfSize(10)
             }

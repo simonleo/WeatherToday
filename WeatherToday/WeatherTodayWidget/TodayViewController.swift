@@ -19,7 +19,6 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     
     let weatherManager = WeatherManager()
     let cityPinyin = "beijing"
-//    var cityList: CityListManager? = nil
     var weatherEvent: WeatherEvent? = nil {
         didSet {
             if let event = self.weatherEvent {
@@ -59,7 +58,6 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         // If there's an update, use NCUpdateResult.NewData
         
         
-//        var cityInfo = cityList?.citys[0]
         weatherManager.getEvents(cityPinyin, callback: {
             weatherEvent in
             self.weatherEvent = weatherEvent
