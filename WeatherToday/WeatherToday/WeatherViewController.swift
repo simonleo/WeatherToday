@@ -37,7 +37,11 @@ class WeatherViewController: UIViewController {
                     self.lowTmpLabel.text = "最低温度：\(event.l_tmp)"
                     self.highTmpLabel.text = "最高温度：\(event.h_tmp)"
                     self.dateLabel.text = event.date
-                    self.updateWeatherImage(Weather(rawValue: event.weather)!)
+                    var weather: Weather = .雨
+                    if (event.weather == "晴") || (event.weather == "多云") || (event.weather == "阴") || (event.weather == "阵雨") || (event.weather == "雷阵雨") {
+                        weather = Weather(rawValue: event.weather)!
+                    }
+                    self.updateWeatherImage(weather)
                 } else {
                     println("weatherEvent is nil!")
                 }
@@ -49,7 +53,7 @@ class WeatherViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         assert(cityPinyin != nil, "city not set")
-        weatherManager = WeatherManager()
+        weatherManager = WeatherManager.sharedManager
         weatherManager.getEvents(cityPinyin!, callback: {
             weatherEvent in
             self.weatherEvent = weatherEvent

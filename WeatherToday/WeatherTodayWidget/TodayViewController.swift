@@ -17,7 +17,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     
     
     
-    let weatherManager = WeatherManager()
+    let weatherManager = WeatherManager.sharedManager
     let cityPinyin = "beijing"
     var weatherEvent: WeatherEvent? = nil {
         didSet {
