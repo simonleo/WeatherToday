@@ -11,11 +11,10 @@ import NotificationCenter
 import WeatherTodayManageKit
 
 class TodayViewController: UIViewController, NCWidgetProviding {
+    
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var weatherLabel: UILabel!
     @IBOutlet weak var caretButton: UIButton!
-    
-    
     
     let weatherManager = WeatherManager.sharedManager
     let cityPinyin = "beijing"
@@ -34,15 +33,14 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view from its nib.
-//        self.cityList = CityListManager()
-//        self.preferredContentSize = CGSizeMake(0, 200);
-//        var cityInfo = cityList?.citys[0]
-//        weatherManager.getEvents(cityInfo!, callback: {
-//            weatherEvent in
-//            self.weatherEvent = weatherEvent
-//        })
-//        self.caretButton.backgroundColor = UIColor.clearColor()
-
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        weatherManager.getEvents(cityPinyin, callback: {
+            newEvent in
+            self.weatherEvent = newEvent
+        })
     }
     
     override func didReceiveMemoryWarning() {
@@ -57,13 +55,17 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         // If there's no update required, use NCUpdateResult.NoData
         // If there's an update, use NCUpdateResult.NewData
         
-        
         weatherManager.getEvents(cityPinyin, callback: {
-            weatherEvent in
-            self.weatherEvent = weatherEvent
+            newEvent in
+//            WeatherEvent: Equatable
+            if newEvent != self.weatherEvent {
+                self.weatherEvent = newEvent
+                completionHandler(NCUpdateResult.NoData)
+            } else {
+                completionHandler(NCUpdateResult.NoData)
+            }
         })
-
-        completionHandler(NCUpdateResult.NewData)
+        
     }
     
     func widgetMarginInsetsForProposedMarginInsets(defaultMarginInsets: UIEdgeInsets) -> UIEdgeInsets {
@@ -74,7 +76,6 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     
     @IBAction func onButtonTouch(sender: UIButton) {
         let url = NSURL(scheme: "weathertoday", host: nil, path: "/\(self.cityPinyin)")
-        let cityPinyin = url!.lastPathComponent
         extensionContext?.openURL(url!, completionHandler: nil)
 
     }

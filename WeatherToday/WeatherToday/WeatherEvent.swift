@@ -48,26 +48,14 @@ public class WeatherEvent {
         let h_tmp = jsonEvent["retData"]["h_tmp"].integer!
         let dateString = jsonEvent["retData"]["date"].string!
         
-//        var cityPinyin: City = .other
-//        if let pinyinString = jsonEvent["retData"]["pinyin"].string {
-//            switch pinyinString {
-//            case "beijing":
-//                cityPinyin = .beijing
-//            case "shanghai":
-//                cityPinyin = .shanghai
-//            case "guangzhou":
-//                cityPinyin = .guangzhou
-//            default:
-//                cityPinyin = .other
-//            }
-//        }
-        
-//        var date: NSDate?
-//        if let dateString = jsonEvent["retData"]["date"].string {
-//            WeatherEvent.dateFormatter.dateFormat = "yyyy-MM-dd"
-//            date = WeatherEvent.dateFormatter.dateFromString(dateString)
-//        }
-        
         return (city, weather, l_tmp, h_tmp, dateString)
     }
+}
+
+//  extension
+extension WeatherEvent: Equatable {
+}
+
+public func ==(lhs: WeatherEvent, rhs: WeatherEvent) -> Bool {
+    return (lhs.weather == rhs.weather) && (lhs.city == rhs.city)
 }
