@@ -9,7 +9,7 @@
 import UIKit
 import WeatherTodayManageKit
 
-class CityWeatherTableViewCell: CityTableViewCell {
+class CityWeatherTableViewCell: UITableViewCell {
     @IBOutlet weak var weatherLabel: UILabel!
     @IBOutlet weak var cityNameLabel: UILabel!
 
@@ -17,7 +17,6 @@ class CityWeatherTableViewCell: CityTableViewCell {
     var cityWeatherEvent: WeatherEvent? {
         didSet {
             if let weatherEvent = cityWeatherEvent {
-//                choosedLabel.hidden = true
                 cityNameLabel.text = weatherEvent.cityName
                 cityNameLabel.font = UIFont.systemFontOfSize(15)
                 weatherLabel.text = weatherEvent.weather
