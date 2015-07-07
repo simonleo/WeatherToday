@@ -34,6 +34,8 @@
 		49EB95EC1B43F3110039D9D6 /* CityListProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EB95BE1B43B3520039D9D6 /* CityListProvider.swift */; };
 		49EB95ED1B43F3150039D9D6 /* CityList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 49EB95C01B43B76F0039D9D6 /* CityList.plist */; };
 		49FCCB971B4B79F000DCCB43 /* CityList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 49EB95C01B43B76F0039D9D6 /* CityList.plist */; };
+		49FCCB991B4B982E00DCCB43 /* AddCityVIewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FCCB981B4B982E00DCCB43 /* AddCityVIewController.swift */; };
+		49FCCB9B1B4B995500DCCB43 /* CityWeatherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FCCB9A1B4B995500DCCB43 /* CityWeatherTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -129,6 +131,8 @@
 		49EB95D31B43F0CE0039D9D6 /* WeatherTodayManageKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeatherTodayManageKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		49EB95DB1B43F0CE0039D9D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49EB95DC1B43F0CE0039D9D6 /* WeatherTodayManageKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherTodayManageKitTests.swift; sourceTree = "<group>"; };
+		49FCCB981B4B982E00DCCB43 /* AddCityVIewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCityVIewController.swift; sourceTree = "<group>"; };
+		49FCCB9A1B4B995500DCCB43 /* CityWeatherTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityWeatherTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -233,8 +237,10 @@
 				49EB95981B438F540039D9D6 /* Main.storyboard */,
 				49EB959B1B438F540039D9D6 /* Images.xcassets */,
 				49EB95921B438F540039D9D6 /* Supporting Files */,
-				49EB95B41B43945E0039D9D6 /* CityTableViewCell.swift */,
 				49EB95C21B43C9F00039D9D6 /* WeatherViewController.swift */,
+				49FCCB981B4B982E00DCCB43 /* AddCityVIewController.swift */,
+				49EB95B41B43945E0039D9D6 /* CityTableViewCell.swift */,
+				49FCCB9A1B4B995500DCCB43 /* CityWeatherTableViewCell.swift */,
 			);
 			path = WeatherToday;
 			sourceTree = "<group>";
@@ -539,8 +545,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				49EB95B51B43945E0039D9D6 /* CityTableViewCell.swift in Sources */,
+				49FCCB9B1B4B995500DCCB43 /* CityWeatherTableViewCell.swift in Sources */,
 				49EB95971B438F540039D9D6 /* ViewController.swift in Sources */,
 				49EB95C31B43C9F00039D9D6 /* WeatherViewController.swift in Sources */,
+				49FCCB991B4B982E00DCCB43 /* AddCityVIewController.swift in Sources */,
 				49EB95951B438F540039D9D6 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -26,5 +26,17 @@
 		<key>city</key>
 		<string>杭州</string>
 	</dict>
+	<dict>
+		<key>pinyin</key>
+		<string>shenzhen</string>
+		<key>city</key>
+		<string>深圳</string>
+	</dict>
+	<dict>
+		<key>pinyin</key>
+		<string>tianjin</string>
+		<key>city</key>
+		<string>天津</string>
+	</dict>
 </array>
 </plist>

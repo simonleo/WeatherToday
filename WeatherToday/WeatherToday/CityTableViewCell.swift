@@ -9,20 +9,27 @@
 import UIKit
 import WeatherTodayManageKit
 
-class CityTableViewCell: UITableViewCell {
-    
-    @IBOutlet weak var cityNameLabel: UILabel!
-    @IBOutlet weak var weatherLabel: UILabel!
 
+class CityTableViewCell: UITableViewCell {
+
+    @IBOutlet weak var choosedLabel: UILabel!
+    @IBOutlet weak var cityLabel: UILabel!
     
-    
-    var cityWeatherEvent: WeatherEvent? {
+    var cityInfo: CityInfo? {
         didSet {
-            if let weatherEvent = cityWeatherEvent {
-                cityNameLabel.text = weatherEvent.cityName
-                cityNameLabel.font = UIFont.systemFontOfSize(15)
-                weatherLabel.text = weatherEvent.weather
-                weatherLabel.font = UIFont.systemFontOfSize(15)
+            cityLabel.text = cityInfo?.cityName
+            cityLabel.font = UIFont.systemFontOfSize(15)
+        }
+    }
+    
+    var isChoosed: Bool? {
+        didSet {
+            if isChoosed! {
+                choosedLabel.text = "on"
+                choosedLabel.textColor = UIColor.blueColor()
+            } else {
+                choosedLabel.text = "off"
+                choosedLabel.textColor = UIColor.blackColor()
             }
         }
     }

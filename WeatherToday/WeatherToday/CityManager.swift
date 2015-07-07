@@ -12,23 +12,40 @@ class CityManager {
     private var citysInManage = [CityInfo]()
 
     init() {
-        let citysList = CityListProvider()
-        citysInManage = citysList.citysInList
+//        let citysList = CityListProvider()
+//        citysInManage = citysList.citysInList
     }
     
     func getCitys() -> [CityInfo] {
         return self.citysInManage
     }
     
-    func addCity(cityInfo: CityInfo, index: Int) {
-        if (citysInManage.count >= index) {
-            citysInManage.insert(cityInfo, atIndex: index)
-        } else {
-            citysInManage.append(cityInfo)
+    func addCity(cityInfo: CityInfo) {
+        for city in citysInManage {
+            if city.cityName == cityInfo.cityName {
+            return
+            }
+        }
+        citysInManage.append(cityInfo)
+    }
+    
+    func deleteCity(cityInfo: CityInfo) {
+        var index = 0
+        for city in citysInManage {
+            if city.cityName == cityInfo.cityName {
+                self.citysInManage.removeAtIndex(index)
+                return
+            }
+            index++
         }
     }
     
-    func deleteCityAtIndex(index: Int) {
-        citysInManage.removeAtIndex(index)
+    func isManagedListIncludeCity(cityInfo: CityInfo) -> Bool {
+        for city in citysInManage {
+            if city.cityName == cityInfo.cityName {
+                return true
+            }
+        }
+        return false
     }
 }

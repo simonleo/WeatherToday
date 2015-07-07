@@ -10,13 +10,14 @@ import Foundation
 
 public class LibraryAPI {
     
-    
+    private let cityListProvider: CityListProvider
     private let cityManager: CityManager
     private let weatherManager: WeatherManager
     
     private init(){
         cityManager = CityManager()
         weatherManager = WeatherManager()
+        cityListProvider = CityListProvider()
     }
     
     //    单例模式 v1
@@ -44,16 +45,20 @@ public class LibraryAPI {
     }
     
     // MARK: public methods
-    public func addCityToManage(cityInfo: CityInfo, index: Int) {
-        cityManager.addCity(cityInfo, index: index)
+    public func getCityList() -> [CityInfo]{
+        return cityListProvider.citysInList
+    }
+    
+    public func addCityToManage(cityInfo: CityInfo) {
+        cityManager.addCity(cityInfo)
     }
     
     public func getManagedCity() -> [CityInfo]{
          return cityManager.getCitys()
     }
     
-    public func deleteManagedCity(index: Int) {
-        cityManager.deleteCityAtIndex(index)
+    public func deleteManagedCity(cityInfo: CityInfo) {
+        cityManager.deleteCity(cityInfo)
     }
     
     public func getManagedCityWeather(callback: [WeatherEvent] ->()) {
@@ -76,6 +81,10 @@ public class LibraryAPI {
             callback(weatherEventForToday)
         })
         
+    }
+    
+    public func isManagedListIncludeCity(cityInfo: CityInfo) -> Bool {
+        return cityManager.isManagedListIncludeCity(cityInfo)
     }
 }
 

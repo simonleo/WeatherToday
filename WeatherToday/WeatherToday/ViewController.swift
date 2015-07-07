@@ -9,7 +9,7 @@
 import UIKit
 import WeatherTodayManageKit
 
-class ViewController: UITableViewController {
+class ViewController: UITableViewController, AddCityDelegate {
 
     let defaultAPI = LibraryAPI.defaultAPI
     var cityWeatherEvents = [WeatherEvent]() {
@@ -22,7 +22,6 @@ class ViewController: UITableViewController {
     
     override func awakeFromNib() {
         title = "WeatherToday"
-        
     }
     
     override func viewDidLoad() {
@@ -39,6 +38,7 @@ class ViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    //MARK: tableView
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
@@ -48,13 +48,13 @@ class ViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        return tableView.dequeueReusableCellWithIdentifier("cityCell", forIndexPath: indexPath) as! UITableViewCell
+        return tableView.dequeueReusableCellWithIdentifier("cityWeatherCell", forIndexPath: indexPath) as! UITableViewCell
     }
 
     override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        if let cityCell = cell as? CityTableViewCell {
+        if let cityWeatherCell = cell as? CityWeatherTableViewCell {
             let cityWeatherEvent = self.cityWeatherEvents[indexPath.row]
-            cityCell.cityWeatherEvent = cityWeatherEvent
+            cityWeatherCell.cityWeatherEvent = cityWeatherEvent
         }
     }
     
@@ -65,6 +65,25 @@ class ViewController: UITableViewController {
             weatherViewController.cityWeatherEvent = cityWeatherEvent
             navigationController?.pushViewController(weatherViewController, animated: true)
         }
+    }
+    
+    //MARK: target-action
+    @IBAction func addCityButtonTouched(sender: UIButton) {
+        let addCityViewController = storyboard?.instantiateViewControllerWithIdentifier("AddCityViewController") as? AddCityViewController
+        if let viewController = addCityViewController {
+            addCityViewController?.delegate = self
+            navigationController?.pushViewController(viewController, animated: true)
+        }
+    }
+    
+    func updateManagedCity(managedCitys: [CityInfo]) {
+        if managedCitys.count <= 0 {
+            self.cityWeatherEvents = [WeatherEvent]()
+        }
+        defaultAPI.getManagedCityWeather({
+            cityWeatherEvents in
+            self.cityWeatherEvents = cityWeatherEvents
+        })
     }
 
 }
