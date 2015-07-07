@@ -8,15 +8,10 @@
 
 import Foundation
 
-public enum City: String {
-    case beijing = "beijing"
-    case shanghai = "shanghai"
-    case guangzhou = "guangzhou"
-    case other = "other"
-}
 
 public class WeatherEvent {
-    public var city: String
+    public var pinyin: String
+    public var cityName: String
     public var weather: String
     public var l_tmp: Int
     public var h_tmp: Int
@@ -28,27 +23,29 @@ public class WeatherEvent {
         return Static.instance
     }
     
-    init(city: String, weather: String, l_tmp: Int, h_tmp: Int, date: String){
-        self.city = city
+    init(pinyin: String, cityName: String, weather: String, l_tmp: Int, h_tmp: Int, date: String){
+        self.cityName = cityName
         self.weather = weather
         self.l_tmp = l_tmp
         self.h_tmp = h_tmp
         self.date = date
+        self.pinyin = pinyin
     }
     
     public convenience init(json: JSONValue) {
         let data = WeatherEvent.extractDataFromJson(json)
-        self.init(city: data.city, weather: data.weather, l_tmp: data.l_tmp, h_tmp: data.h_tmp, date: data.date)
+        self.init(pinyin: data.pinyin, cityName: data.cityName, weather: data.weather, l_tmp: data.l_tmp, h_tmp: data.h_tmp, date: data.date)
     }
     
-    class func extractDataFromJson(jsonEvent: JSONValue) -> (city: String, weather: String, l_tmp: Int, h_tmp: Int, date: String) {
-        let city = jsonEvent["retData"]["city"].string!
+    class func extractDataFromJson(jsonEvent: JSONValue) -> (pinyin: String, cityName: String, weather: String, l_tmp: Int, h_tmp: Int, date: String) {
+        let cityName = jsonEvent["retData"]["city"].string!
         let weather = jsonEvent["retData"]["weather"].string!
         let l_tmp = jsonEvent["retData"]["l_tmp"].integer!
         let h_tmp = jsonEvent["retData"]["h_tmp"].integer!
         let dateString = jsonEvent["retData"]["date"].string!
+        let pinyin = jsonEvent["retData"]["pinyin"].string!
         
-        return (city, weather, l_tmp, h_tmp, dateString)
+        return (pinyin,cityName, weather, l_tmp, h_tmp, dateString)
     }
 }
 
@@ -57,5 +54,5 @@ extension WeatherEvent: Equatable {
 }
 
 public func ==(lhs: WeatherEvent, rhs: WeatherEvent) -> Bool {
-    return (lhs.weather == rhs.weather) && (lhs.city == rhs.city)
+    return (lhs.weather == rhs.weather) && (lhs.cityName == rhs.cityName)
 }

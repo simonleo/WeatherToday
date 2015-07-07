@@ -11,16 +11,27 @@ import WeatherTodayManageKit
 
 class ViewController: UITableViewController {
 
-    var cityList: CityListManager? = nil
+    let defaultAPI = LibraryAPI.defaultAPI
+    var cityWeatherEvents = [WeatherEvent]() {
+        didSet {
+            dispatch_async(dispatch_get_main_queue()) {
+                self.tableView.reloadData()
+            }
+        }
+    }
     
     override func awakeFromNib() {
         title = "WeatherToday"
-        cityList = CityListManager()
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        defaultAPI.getManagedCityWeather({
+          cityWeatherEvents in
+            self.cityWeatherEvents = cityWeatherEvents
+        })
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,7 +44,7 @@ class ViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cityList?.citys.count ?? 0
+        return cityWeatherEvents.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -42,17 +53,16 @@ class ViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         if let cityCell = cell as? CityTableViewCell {
-            let cityInfo = cityList?.citys[indexPath.row]
-            cityCell.cityInfo = cityInfo
+            let cityWeatherEvent = self.cityWeatherEvents[indexPath.row]
+            cityCell.cityWeatherEvent = cityWeatherEvent
         }
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let cityInfo = cityList?.citys[indexPath.row]
-        let cityPinyin = cityInfo?.pinyin.rawValue
+        let cityWeatherEvent = self.cityWeatherEvents[indexPath.row]
         let weatherViewController = storyboard?.instantiateViewControllerWithIdentifier("WeatherViewController") as? WeatherViewController
         if let weatherViewController = weatherViewController {
-            weatherViewController.cityPinyin = cityPinyin
+            weatherViewController.cityWeatherEvent = cityWeatherEvent
             navigationController?.pushViewController(weatherViewController, animated: true)
         }
     }

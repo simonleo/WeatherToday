@@ -12,15 +12,17 @@ import WeatherTodayManageKit
 class CityTableViewCell: UITableViewCell {
     
     @IBOutlet weak var cityNameLabel: UILabel!
-    @IBOutlet weak var nickNameLabel: UILabel!
+    @IBOutlet weak var weatherLabel: UILabel!
+
     
-    var cityInfo: CityInfo? {
+    
+    var cityWeatherEvent: WeatherEvent? {
         didSet {
-            if let cityInfo = cityInfo {
-                cityNameLabel.text = cityInfo.city
+            if let weatherEvent = cityWeatherEvent {
+                cityNameLabel.text = weatherEvent.cityName
                 cityNameLabel.font = UIFont.systemFontOfSize(15)
-                nickNameLabel.text = cityInfo.nickName
-                nickNameLabel.font = UIFont.systemFontOfSize(10)
+                weatherLabel.text = weatherEvent.weather
+                weatherLabel.font = UIFont.systemFontOfSize(15)
             }
         }
     }

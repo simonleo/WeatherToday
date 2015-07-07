@@ -26,13 +26,12 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var weatherImageView: UIImageView!
     
-    var cityPinyin: String!
-    var weatherManager: WeatherManager!
+    var cityWeatherEvent: WeatherEvent!
     var weatherEvent: WeatherEvent! {
         didSet {
             dispatch_async(dispatch_get_main_queue()) {
                 if let event = self.weatherEvent {
-                    self.cityLabel.text = event.city
+                    self.cityLabel.text = event.cityName
                     self.weatherLabel.text = event.weather
                     self.lowTmpLabel.text = "最低温度：\(event.l_tmp)"
                     self.highTmpLabel.text = "最高温度：\(event.h_tmp)"
@@ -52,14 +51,8 @@ class WeatherViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        assert(cityPinyin != nil, "city not set")
-        weatherManager = WeatherManager.sharedManager
-        weatherManager.getEvents(cityPinyin!, callback: {
-            weatherEvent in
-            self.weatherEvent = weatherEvent
-        })
-        
-
+        assert(cityWeatherEvent != nil, "city not set")
+        self.weatherEvent = cityWeatherEvent
     }
     
     func updateWeatherImage(weather: Weather) {

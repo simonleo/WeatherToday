@@ -9,38 +9,20 @@
 import UIKit
 
 public struct CityInfo {
-    public let pinyin: City
-    public let city: String
-    public let nickName: String
-    public let imageName: String
-    
-    public var image: UIImage {
-        return UIImage(named: imageName)!
-    }
+    public let pinyin: String
+    public let cityName: String
     
     public init(dictionary: [String:String]) {
-        var cityPinyin = dictionary["pinyin"]!
-        switch cityPinyin {
-        case "beijing":
-            pinyin = .beijing
-        case "shanghai":
-            pinyin = .shanghai
-        case "guangzhou":
-            pinyin = .guangzhou
-        default:
-            pinyin = .other
-        }
-        city = dictionary["city"]!
-        nickName = dictionary["nickName"]!
-        imageName = dictionary["imageName"]!
+        self.pinyin = dictionary["pinyin"]!
+        self.cityName = dictionary["city"]!
     }
 }
 
-public class CityListManager {
-    public var citys = [CityInfo]()
+public class CityListProvider {
+    public var citysInList = [CityInfo]()
     
     init(plistNamed: String) {
-        self.citys = self.loadCityInfoFromPlistNamed(plistNamed)
+        self.citysInList = self.loadCityInfoFromPlistNamed(plistNamed)
     }
     
     public convenience init() {

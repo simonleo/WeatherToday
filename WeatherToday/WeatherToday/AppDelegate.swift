@@ -20,15 +20,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(application: UIApplication!, openURL url: NSURL!, sourceApplication: String!, annotation: AnyObject!) -> Bool {
-        if let navCtlr = window?.rootViewController as? UINavigationController {
-            if let tableCtlr = navCtlr.topViewController as? ViewController {
-                let weatherViewController = tableCtlr.storyboard?.instantiateViewControllerWithIdentifier("WeatherViewController") as? WeatherViewController
-                if let weatherViewController = weatherViewController {
-                    weatherViewController.cityPinyin = "beijing"
-                    navCtlr.pushViewController(weatherViewController, animated: true)
-                }
-            }
-        }
         return true
     }
 
