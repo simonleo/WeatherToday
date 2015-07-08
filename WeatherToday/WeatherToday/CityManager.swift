@@ -22,7 +22,7 @@ class CityManager {
     
     func addCity(cityInfo: CityInfo) {
         for city in citysInManage {
-            if city.cityName == cityInfo.cityName {
+            if city == cityInfo {
             return
             }
         }
@@ -32,7 +32,7 @@ class CityManager {
     func deleteCity(cityInfo: CityInfo) {
         var index = 0
         for city in citysInManage {
-            if city.cityName == cityInfo.cityName {
+            if city == cityInfo {
                 self.citysInManage.removeAtIndex(index)
                 return
             }
@@ -42,7 +42,7 @@ class CityManager {
     
     func isManagedListIncludeCity(cityInfo: CityInfo) -> Bool {
         for city in citysInManage {
-            if city.cityName == cityInfo.cityName {
+            if city == cityInfo {
                 return true
             }
         }

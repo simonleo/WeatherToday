@@ -32,6 +32,11 @@ class ViewController: UITableViewController, AddCityDelegate {
             self.cityWeatherEvents = cityWeatherEvents
         })
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        showOrHideNavPrompt()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -76,15 +81,34 @@ class ViewController: UITableViewController, AddCityDelegate {
         }
     }
     
-    func updateManagedCity(managedCitys: [CityInfo]) {
+    @objc func updateManagedCity() {
+        let managedCitys = defaultAPI.getManagedCity()
         if managedCitys.count <= 0 {
             self.cityWeatherEvents = [WeatherEvent]()
+        } else {
+            defaultAPI.getManagedCityWeather({
+                cityWeatherEvents in
+                self.cityWeatherEvents = cityWeatherEvents
+            })
         }
-        defaultAPI.getManagedCityWeather({
-            cityWeatherEvents in
-            self.cityWeatherEvents = cityWeatherEvents
-        })
+    }
+    
+    //MARK: private methods
+    func showOrHideNavPrompt() {
+        let count = self.defaultAPI.getManagedCity().count
+        if count > 0 {
+            self.navigationItem.prompt = nil
+        } else {
+            let delayInSeconds = 0.5
+            let popTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delayInSeconds * Double(NSEC_PER_SEC)))
+            dispatch_after(popTime, dispatch_get_main_queue()){
+                self.navigationItem.prompt = "Add cities to show their weather!"
+            }
+        }
     }
 
 }
+
+
+
 

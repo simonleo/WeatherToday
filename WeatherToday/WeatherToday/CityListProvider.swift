@@ -8,7 +8,7 @@
 
 import UIKit
 
-public struct CityInfo {
+public struct CityInfo : Equatable{
     public let pinyin: String
     public let cityName: String
     
@@ -18,14 +18,18 @@ public struct CityInfo {
     }
 }
 
-public class CityListProvider {
-    public var citysInList = [CityInfo]()
+public func ==(lhs: CityInfo, rhs: CityInfo) -> Bool{
+    return (lhs.cityName == rhs.cityName) && (lhs.pinyin == rhs.pinyin)
+}
+
+class CityListProvider {
+    var citysInList = [CityInfo]()
     
     init(plistNamed: String) {
         self.citysInList = self.loadCityInfoFromPlistNamed(plistNamed)
     }
     
-    public convenience init() {
+    convenience init() {
         self.init(plistNamed: "CityList")
     }
     

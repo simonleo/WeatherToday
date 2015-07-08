@@ -9,8 +9,8 @@
 import UIKit
 import WeatherTodayManageKit
 
-protocol AddCityDelegate {
-    func updateManagedCity(managedCitys: [CityInfo])
+@objc protocol AddCityDelegate {
+    func updateManagedCity()
 }
 
 class AddCityViewController: UITableViewController {
@@ -24,7 +24,7 @@ class AddCityViewController: UITableViewController {
     }
     
     var managedCitys = [CityInfo]()
-    var delegate: AddCityDelegate!
+    weak var delegate: AddCityDelegate!
     
     override func awakeFromNib() {
         title = "CityList"
@@ -72,8 +72,8 @@ class AddCityViewController: UITableViewController {
     }
 
     override func viewDidDisappear(animated: Bool) {
-        self.managedCitys = defaultAPI.getManagedCity()
-        delegate?.updateManagedCity(managedCitys)
+//        self.managedCitys = defaultAPI.getManagedCity()
+        delegate?.updateManagedCity()
         super.viewDidDisappear(animated)
     }
 }

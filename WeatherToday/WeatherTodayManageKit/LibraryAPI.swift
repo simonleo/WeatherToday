@@ -8,6 +8,8 @@
 
 import Foundation
 
+private let defaultAPIx = LibraryAPI()
+
 public class LibraryAPI {
     
     private let cityListProvider: CityListProvider
@@ -37,11 +39,15 @@ public class LibraryAPI {
     
     //    单例模式 v2
     //    swift里let能保证线程安全，因此单例模式有更简单的写法
+//    public class var defaultAPI: LibraryAPI {
+//        struct Static {
+//            static let instance = LibraryAPI()
+//        }
+//        return Static.instance
+//    }
+
     public class var defaultAPI: LibraryAPI {
-        struct Static {
-            static let instance = LibraryAPI()
-        }
-        return Static.instance
+        return defaultAPIx
     }
     
     // MARK: public methods
